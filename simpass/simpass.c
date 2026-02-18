@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+	srand(time(NULL));
+	int simple, help = 0;
+	int length = 12;
+	int start = 0;
+	int randnum = 74;
+	int setchar = 3;
+	for (int i = 1; i < argc; i++)
+	{
+		if (strcmp(argv[i], "-s") == 0)
+		{
+			simple = 1;
+		}
+		else if (strcmp(argv[i], "-h") == 0)
+		{
+			help = 1;
+		}
+		else if (strcmp(argv[i], "-l") == 0)
+		{
+			if (i + 1 < argc)
+			{
+				length = atoi(argv[++i]);
+			}
+			else
+			{
+				printf("Error, length argument given but no values assigned.\n");
+				return 1;
+			}
+		}
+	}
+	if (help)
+	{
+		printf("simple password generator\n arguments:\n -h print the help message\n -s simple mode, only letters and caps\n -l length of the password (input number after the argument, default 12)\n");
+		return 0;
+	}
+	if (simple)
+	{
+		start = 17;
+		randnum -= 16;
+		setchar = 2;
+	}
+
+	// the actual randomizer code starts here
+	start += 48;
+	int typeRand = 0;
+	int ranresult = 0;
+	FILE *f = fopen("saved.txt", "a");
+	for (int i = 0; i < (length - 1); i++)
+	{
+		typeRand = (rand() % setchar);
+		if (typeRand == 0) // caps
+		{
+			ranresult = (rand() % 26);
+			ranresult += 65;
+		}
+		if (typeRand == 1) // non caps
+		{
+			ranresult = (rand() % 26);
+			ranresult += 97;
+		}
+		if (typeRand == 2) //numbers for non simple
+		{
+			ranresult = (rand() % 10);
+			ranresult += 48;
+		}
+		char temp = (char)ranresult;
+		printf("%c", ranresult);
+		fprintf(f, "%c", ranresult);
+	}
+	printf("\n");
+	fprintf(f, "\n");
+	fclose(f);
+	return 0;
+}
