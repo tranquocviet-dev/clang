@@ -1,17 +1,16 @@
 #include <stdio.h>
 
 int main() {
-  
-    FILE *fptr = fopen("data.txt", "r");  
-    if (fptr == NULL) {  
-        return 1;  
+
+    FILE *fptr = fopen("data.txt", "r");
+    if (fptr == NULL) {
+        return 1;
     }
     // Read and print each line from the file
     char buff[100];
     while (fgets(buff, sizeof(buff), fptr) != NULL) {
         printf("%s", buff);
     }
-
     fclose(fptr);
     return 0;
 
