@@ -1,0 +1,19 @@
+
+nct.c,455
+#define TB_HEIGHT 9,140
+#define TB_WIDTH 10,160
+typedef struct Raindrop13,182
+    float x,15,208
+    float x, y,15,208
+    float x, y, vx,15,208
+    float x, y, vx, vy;15,208
+} Raindrop;16,232
+#define COUNT_DROPS 18,245
+Raindrop drops[drops20,269
+void genRaindrop(23,346
+void moveRain(34,581
+WINDOW *drawRain(drawRain51,941
+WINDOW *drawTitleBox(drawTitleBox64,1210
+void drawOuterBox(77,1549
+void initRaindrops(82,1601
+int main(90,1707

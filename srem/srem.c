@@ -15,7 +15,7 @@ int main()
   char buffer[100];
   strftime(buffer, sizeof(buffer), "%d-%m-%Y %H:%M", t);
   fprintf(f, "\n%s\n", buffer);
-  
+
   char message[100];
   printf("enter the message:\n");
   scanf("%[^\n]", message);
