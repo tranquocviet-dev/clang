@@ -6,6 +6,7 @@
 #define ScreenWidth 900
 #define ScreenHeight 600
 
+// wtf this looks awesome
 int main ()
 {
     Vector2 Dot1start =  {300.0f, 100.0f};
@@ -19,6 +20,8 @@ int main ()
     SetTargetFPS(10);
     while (!WindowShouldClose())
     {
+        int i = 0;
+
         BeginDrawing();
             ClearBackground(RAYWHITE);
         EndDrawing();
